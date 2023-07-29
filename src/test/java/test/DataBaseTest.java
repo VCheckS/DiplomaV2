@@ -2,18 +2,38 @@ package test;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.google.errorprone.annotations.Var;
+import data.ConnectionConfig;
 import data.DataHelper;
 import data.SqlHelper;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import page.DashBoard;
 
+import javax.sql.DataSource;
+
+import java.sql.SQLException;
+
 import static com.codeborne.selenide.Selenide.open;
 
 public class DataBaseTest {
+    private static DataSource dataSource;
     @BeforeAll
     static void setUPAll() {
+        var dbType = System.getProperty("t.db", "postgres");
+        System.setProperty("t.db", dbType);
+
+        var postgres = System.getProperty("t.postgres", "false");
+        System.setProperty("t.postgres", postgres);
+
+        var sql = System.getProperty("t.sql", "false");
+        System.setProperty("t.sql", sql);
+
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
+
+        dataSource = ConnectionConfig.getDataSource();
+        SqlHelper.setDataSource(dataSource);
     }
 
     @BeforeEach
@@ -32,65 +52,36 @@ public class DataBaseTest {
 
     @Test
 
-    public void TestApprovedCardCreditSql() {
-
-        var postgres = System.getProperty("t.postgres");
-        var sql = System.getProperty("t.sql");
-        if ("postgres".equals(postgres)) {
-
-        } else if ("sql".equals(sql)) {
-
-        } else {
-
-        }
+    public void TestApprovedCardCredit()  throws SQLException {
 
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.getRandomMonth();
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findSuccessMessage("Успешно");
-        SqlHelper status = new SqlHelper();
-        status.getStatusCreditSql();
+        String status = SqlHelper.getStatusCredit();
         System.out.println("Статус кредита: " + status);
         Assertions.assertEquals("APPROVED", status);
     }
 
     @Test
-    public void TestApprovedCardCreditPostgres() {
-        String postgres = System.getProperty("t.postgres");
-        String sql = System.getProperty("t.sql");
-        if ("postgres".equals(postgres)) {
 
-        } else if ("sql".equals(sql)) {
+    public void TestApprovedCardPayment()  throws SQLException {
 
-        } else {
-
-        }
         DashBoard dashboard = new DashBoard();
-        dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.clickButtonPayment();
+        dashboard.getApprovedCardInfo();
+        dashboard.getRandomMonth();
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findSuccessMessage("Успешно");
-        SqlHelper status = new SqlHelper();
-        status.getStatusCreditPostgres();
+        String status = SqlHelper.getStatusPayment();
         System.out.println("Статус кредита: " + status);
         Assertions.assertEquals("APPROVED", status);
     }

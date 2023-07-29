@@ -39,14 +39,10 @@ public class NegativeTestsCredit {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
 
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getRandomMonth();
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -55,15 +51,10 @@ public class NegativeTestsCredit {
     public void EmptyNameFieldPaymentService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.getRandomMonth();
+        dashboard.getNextYear();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findMustBeFilledMessage("Поле обязательно для заполнения");
     }
@@ -72,15 +63,10 @@ public class NegativeTestsCredit {
     public void EmptyMonthFieldCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.getName();
+        dashboard.getNextYear();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -89,15 +75,11 @@ public class NegativeTestsCredit {
     public void EmptyYearFieldCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getRandomMonth();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -107,14 +89,11 @@ public class NegativeTestsCredit {
     public void EmptyCvcFieldCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
+        dashboard.getApprovedCardInfo();
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getNextYear();
+        dashboard.getRandomMonth();
 
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
@@ -124,16 +103,11 @@ public class NegativeTestsCredit {
     public void InvalidCardFieldCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = StringGenerator.stringCard();
-        dashboard.getCardInfo().setValue(cardNumber);
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getStringCard();
+        dashboard.getRandomMonth();
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -143,15 +117,11 @@ public class NegativeTestsCredit {
     public void InvalidMonthFieldCreditService1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        dashboard.getMonth().setValue("Q, q");
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.stringMonth("Q,q");
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -161,15 +131,11 @@ public class NegativeTestsCredit {
     public void InvalidMonthFieldCreditService2() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        dashboard.getMonth().setValue("!, @");
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.stringMonth("!,@");
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -178,15 +144,11 @@ public class NegativeTestsCredit {
     public void InvalidMonthFieldCreditService3() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        dashboard.getMonth().setValue("й, `");
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.stringMonth("~,й");
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -196,15 +158,11 @@ public class NegativeTestsCredit {
     public void InvalidYearFieldCreditService1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        dashboard.getYear().setValue("й, `");
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.getRandomMonth();
+        dashboard.stringYear("й, `");
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -214,15 +172,11 @@ public class NegativeTestsCredit {
     public void InvalidYearFieldCreditService2() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        dashboard.getYear().setValue("!, @");
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.getRandomMonth();
+        dashboard.stringYear("!, @");
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -232,15 +186,11 @@ public class NegativeTestsCredit {
     public void InvalidYearFieldCreditService3() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        dashboard.getYear().setValue("Q, q");
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.getRandomMonth();
+        dashboard.stringYear("Q, q");
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -249,16 +199,11 @@ public class NegativeTestsCredit {
     public void InvalidNameFieldCreditService1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = StringGenerator.stringCard();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.getRandomMonth();
+        dashboard.getNextYear();
+        StringGenerator.stringCard();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -268,15 +213,11 @@ public class NegativeTestsCredit {
     public void InvalidCvcFieldCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        dashboard.getCvc().setValue("Q, !, @");
+        dashboard.getApprovedCardInfo();
+        dashboard.getRandomMonth();
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.stringCvc("Q, !, @");
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -285,15 +226,11 @@ public class NegativeTestsCredit {
     public void ScriptProtectionCardFieldCreditServ() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getCardInfo().setValue("<script> alert('Hello!');</script>");
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.scriptCard("<script> alert('Hello!');</script>");
+        dashboard.getRandomMonth();
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -303,34 +240,24 @@ public class NegativeTestsCredit {
     public void textNameFieldCreditServ() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.text();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.getRandomMonth();
+        dashboard.getNextYear();
+        dashboard.getNameLongText();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Превышена максимальная длина Имени");
     }
-
 
     @Test
     public void limitCheckMonthFieldCreditServ1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        dashboard.getMonth().setValue("0','0");
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.stringMonth("0','0");
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -339,15 +266,11 @@ public class NegativeTestsCredit {
     public void limitCheckMonthFieldCreditServ2() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        dashboard.getMonth().setValue("1','3");
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.stringMonth("1','3");
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findInvalidCardExpirationDate("Неверно указан срок действия карты");
     }
@@ -356,16 +279,11 @@ public class NegativeTestsCredit {
     public void limitCheckYearFieldCreditServ1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.currentMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear();
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.getCurrentMonth();
+        dashboard.getYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findSuccessMessage("Успешно");
     }
@@ -374,16 +292,11 @@ public class NegativeTestsCredit {
     public void limitCheckYearFieldCreditServ2() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.currentMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 6;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.getCurrentMonth();
+        dashboard.limitYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findInvalidCardExpirationDate("Неверно указан срок действия карты");
     }

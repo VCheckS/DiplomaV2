@@ -13,34 +13,47 @@ public class DataHelper {
     }
 
 
-    public static int getLastTwoDigitsOfYear() {
+    public static String getLastTwoDigitsOfYear() {
 
-        int currentYear = Year.now().getValue();
+        var currentYear = Year.now().getValue();
 
-        // Извлекаем последние две цифры
-        int lastTwoDigitsOfYear = currentYear % 100;
+        var lastTwoDigitsOfYear = currentYear % 100;
 
 
-        return lastTwoDigitsOfYear;
+        return String.valueOf(lastTwoDigitsOfYear);
+    }
+    public static String getNextYear() {
+
+        var currentYear = Year.now().getValue();
+
+        var lastTwoDigitsOfYear = currentYear % 100+1;
+
+
+        return String.valueOf(lastTwoDigitsOfYear);
+    }
+    public static String limitYear() {
+
+        var currentYear = Year.now().getValue();
+
+        var lastTwoDigitsOfYear = currentYear % 100+6;
+
+
+        return String.valueOf(lastTwoDigitsOfYear);
     }
 
-    @Value
-    public static class CardInfo {
-        String cardNumber;
 
+    public static String  getApprovedCardInfo() {
+        return ("4444 4444 4444 4441");
     }
 
-    public static CardInfo getApprovedCardInfo() {
-        return new CardInfo("4444 4444 4444 4441");
+    public static String  getDeclinedCardInfo() {
+        return ("4444 4444 4444 4442");
     }
 
-    public static CardInfo getDeclinedCardInfo() {
-        return new CardInfo("4444 4444 4444 4442");
+    public static String  getUnknownCardInfo() {
+        return ("1111 1111 1111 1111");
     }
 
-    public static CardInfo getUnknownCardInfo() {
-        return new CardInfo("1111 1111 1111 1111");
-    }
 
 
     private static Faker faker = new Faker(new Locale("en"));
@@ -49,17 +62,9 @@ public class DataHelper {
         return faker.name().fullName();
     }
 
-    @Value
-    public static class CvcCode {
-        String code;
-    }
 
     public static String generateCvcCode() {
-
-        String randomNumber = faker.number().digits(3);
-
-
-        return randomNumber;
+        return faker.number().digits(3);
     }
 
     public static String generateRandomMonth() {

@@ -36,16 +36,11 @@ public class PositiveTestCredit {
     public void positiveTestWithApprovedCardCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getApprovedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getApprovedCardInfo();
+        dashboard.getRandomMonth();
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findSuccessMessage("Успешно");
     }
@@ -55,16 +50,12 @@ public class PositiveTestCredit {
     public void positiveTestWithUnknownCardCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();;
-        var cardNumber = DataHelper.getUnknownCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getUnknownCardInfo();
+        dashboard.getRandomMonth();
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
+        dashboard.clickButtonCont();
         dashboard.clickButtonCont();
         dashboard.findErrorMessage("Ошибка");
     }
@@ -73,16 +64,11 @@ public class PositiveTestCredit {
     public void positiveTestWithDeclinedCardCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        var cardNumber = DataHelper.getDeclinedCardInfo();
-        dashboard.getCardInfo().setValue(String.valueOf(cardNumber));
-        var month = DataHelper.generateRandomMonth();
-        dashboard.getMonth().setValue(month);
-        var year = DataHelper.getLastTwoDigitsOfYear() + 1;
-        dashboard.getYear().setValue(String.valueOf(year));
-        var name = DataHelper.generateRandomName();
-        dashboard.getName().setValue(name);
-        var cvc = DataHelper.generateCvcCode();
-        dashboard.getCvc().setValue(cvc);
+        dashboard.getDeclinedCardInfo();
+        dashboard.getRandomMonth();
+        dashboard.getNextYear();
+        dashboard.getName();
+        dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findErrorMessage("Ошибка");
 

@@ -32,6 +32,7 @@ dependencies {
     testImplementation 'mysql:mysql-connector-java:8.0.33'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'commons-dbutils:commons-dbutils:1.7'
+    implementation 'org.apache.commons:commons-dbcp2:2.9.0'
 
 
     testRuntimeOnly 'org.slf4j:slf4j-simple:2.0.5'
@@ -49,12 +50,14 @@ dependencies {
     )
 
     implementation 'org.postgresql:postgresql:42.5.4'
+    implementation 'org.apache.commons:commons-dbcp2:2.9.0'
 }
 
 test {
     useJUnitPlatform()
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+    systemProperty 't.db', System.getProperty('t.db', 'sql')
     systemProperty 't.postgres', System.getProperty('t.postgres', 'postgres')
-    systemProperty 't.sql', System.getProperty('t.sql', 'sql')
+    systemProperty 't.sql', System.getProperty('t.sql', 'false')
 
 }

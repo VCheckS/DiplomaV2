@@ -22,14 +22,6 @@ services:
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=pass
 
-#  node-app:
-#    build:
-#      context: ./bankServ
-#      dockerfile: Dockerfile
-#    image: node-app:1.0
-#    ports:
-#      - '9999:9999'
-
   gate-simulator:
     build:
       context: ./bankServ

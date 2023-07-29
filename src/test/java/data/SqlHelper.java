@@ -1,68 +1,56 @@
 package data;
 
 
+import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.SQLException;
 
 public class SqlHelper {
-    private QueryRunner sqlQueryRunner;
-    private QueryRunner postgresQueryRunner;
     private static QueryRunner runner = new QueryRunner();
+    private static DataSource dataSource;
 
-    public static SqlHelper() {
-        try {
-            Connection sqlConnection = ConnectionConfig.getConnSql();
-            this.sqlQueryRunner = new QueryRunner((DataSource) sqlConnection);
-
-            Connection postgresConnection = ConnectionConfig.getConnPostgres();
-            this.postgresQueryRunner = new QueryRunner((DataSource) postgresConnection);
-        } catch (SQLException e) {
-
-        }
+    public static void setDataSource(DataSource ds) {
+        dataSource = ds;
     }
 
-
+    @SneakyThrows
     public static String getStatusPayment() {
-        var statusSQL = "SELECT pe.status FROM payment_entity pe order by created DESC  LIMIT 1";
-        try (var conn = ConnectionConfig.getConnSql()) {
-            var status = runner.query(conn, statusSQL, new ScalarHandler<String>());
-            return status;
-        } catch (SQLException exception) {
-            exception.printStackTrace();
+
+        var dbType = System.getProperty("t.db", "sql");
+
+        if ("postgres".equalsIgnoreCase(dbType)) {
+            String statusSQL = "SELECT pe.status FROM payment_entity pe ORDER BY created DESC LIMIT 1";
+            try (Connection conn = dataSource.getConnection()) {
+                return runner.query(conn, statusSQL, new ScalarHandler<>());
+            }
+        } else {
+            String statusSQL = "SELECT pe.status FROM payment_entity pe ORDER BY created DESC LIMIT 1";
+            try (Connection conn = dataSource.getConnection()) {
+                return runner.query(conn, statusSQL, new ScalarHandler<>());
+            }
         }
-        return null;
     }
 
-    public static String getStatusCreditSql() {
-        var sql = System.getProperty("t.sql");
-        var statusSQL = "SELECT cre.status FROM credit_request_entity cre order by created DESC  LIMIT 1";
-        try (var conn = ConnectionConfig.getConnSql()) {
-            var status = runner.query(conn, statusSQL, new ScalarHandler<String>());
+    @SneakyThrows
+    public static String getStatusCredit() {
+        String dbType = System.getProperty("t.db", "sql");
 
-            return status;
-        } catch (SQLException exception) {
-            exception.printStackTrace();
+        if ("postgres".equalsIgnoreCase(dbType)) {
+            String statusSQL = "SELECT cre.status FROM credit_request_entity cre ORDER BY created DESC LIMIT 1";
+            try (Connection conn = dataSource.getConnection()) {
+                return runner.query(conn, statusSQL, new ScalarHandler<>());
+            }
+        } else {
+            String statusSQL = "SELECT cre.status FROM credit_request_entity cre ORDER BY created DESC LIMIT 1";
+            try (Connection conn = dataSource.getConnection()) {
+                return runner.query(conn, statusSQL, new ScalarHandler<>());
+            }
         }
-        return null;
-    }
 
-    public static String getStatusCreditPostgres() {
-        var postgres = System.getProperty("t.postgres");
-        var statusPostgres = "SELECT cre.status FROM credit_request_entity cre order by created DESC  LIMIT 1";
-        try (var conn = ConnectionConfig.getConnPostgres()) {
-            var status = runner.query(conn, statusPostgres, new ScalarHandler<String>());
-
-            return status;
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
-        return null;
     }
 
 
 }
-

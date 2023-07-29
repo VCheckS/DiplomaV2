@@ -1,6 +1,8 @@
 package page;
 
 import com.codeborne.selenide.SelenideElement;
+import data.DataHelper;
+import data.StringGenerator;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -10,71 +12,120 @@ import static com.codeborne.selenide.Selenide.*;
 public class DashBoard {
 
 
-        private static SelenideElement buttonCredit = $x("//*[contains(text(), 'Купить в кредит')]");
-        private static SelenideElement buttonPayment = $x("//*[contains(text(), 'Купить')]");
-        private static SelenideElement cardInfo = $$(".input__control").get(0);
-        private static SelenideElement month = $$(".input__control").get(1);
-        private static SelenideElement year = $$(".input__control").get(2);
+        private SelenideElement buttonCredit = $x("//*[contains(text(), 'Купить в кредит')]");
+        private SelenideElement buttonPayment = $x("//*[contains(text(), 'Купить')]");
+        private SelenideElement cardInfo = $$(".input__control").get(0);
+        private SelenideElement month = $$(".input__control").get(1);
+        private SelenideElement year = $$(".input__control").get(2);
 
-        private static SelenideElement name = $$(".input__control").get(3);
-        private static SelenideElement cvc = $$(".input__control").get(4);
-        private static SelenideElement buttonCont = $$("button").find(exactText("Продолжить"));
-        private static SelenideElement errorMessage = $(byText("Ошибка"));
-        private static SelenideElement successMessage = $(byText("Успешно"));
-        private static SelenideElement wrongFormatMessage = $(byText("Неверный формат"));
-        private static SelenideElement mustBeFilledMessage = $(byText("Поле обязательно для заполнения"));
-        private static SelenideElement invalidCardExpirationDate = $(byText("Неверно указан срок действия карты"));
+        private SelenideElement name = $$(".input__control").get(3);
+        private SelenideElement cvc = $$(".input__control").get(4);
+        private SelenideElement buttonCont = $$("button").find(exactText("Продолжить"));
+        private SelenideElement errorMessage = $(byText("Ошибка"));
+        private SelenideElement successMessage = $(byText("Успешно"));
+        private SelenideElement wrongFormatMessage = $(byText("Неверный формат"));
+        private SelenideElement mustBeFilledMessage = $(byText("Поле обязательно для заполнения"));
+        private SelenideElement invalidCardExpirationDate = $(byText("Неверно указан срок действия карты"));
 
-        public static void findErrorMessage(String expectedText) {
+        public void findErrorMessage(String expectedText) {
                 errorMessage.shouldHave(partialText(expectedText)).shouldBe(visible);
         }
 
-        public static void findSuccessMessage(String expectedText) {
+        public void findSuccessMessage(String expectedText) {
                 successMessage.shouldHave(partialText(expectedText)).shouldBe(visible);
         }
 
-        public static void findWrongFormatMessage(String expectedText) {
+        public void findWrongFormatMessage(String expectedText) {
                 wrongFormatMessage.shouldHave(partialText(expectedText)).shouldBe(visible);
         }
 
-        public static void findMustBeFilledMessage(String expectedText) {
+        public void findMustBeFilledMessage(String expectedText) {
                 mustBeFilledMessage.shouldHave(partialText(expectedText)).shouldBe(visible);
         }
 
-        public static void findInvalidCardExpirationDate(String expectedText) {
+        public void findInvalidCardExpirationDate(String expectedText) {
                 invalidCardExpirationDate.shouldHave(partialText(expectedText)).shouldBe(visible);
         }
 
 
-        public static void clickButtonPayment() {
+        public void clickButtonPayment() {
                 buttonPayment.click();
         }
 
-        public static void clickCreditButton() {
+        public void clickCreditButton() {
                 buttonCredit.click();
         }
 
-        public static SelenideElement getCardInfo() {
-                return cardInfo;
+        public void getApprovedCardInfo() {
+
+                cardInfo.setValue(DataHelper.getApprovedCardInfo());
+        }
+        public void getDeclinedCardInfo() {
+
+                cardInfo.setValue(DataHelper.getDeclinedCardInfo());
+        }
+        public void getUnknownCardInfo() {
+
+                cardInfo.setValue(DataHelper.getUnknownCardInfo());
+        }
+        public void getStringCard() {
+
+                cardInfo.setValue(StringGenerator.stringCard());
         }
 
-        public static SelenideElement getMonth() {
-                return month;
+        public void getRandomMonth() {
+
+                month.setValue(DataHelper.generateRandomMonth());
+        }
+        public void getCurrentMonth() {
+
+                month.setValue(DataHelper.currentMonth());
         }
 
-        public static SelenideElement getYear() {
-                return year;
+        public void getYear() {
+
+                year.setValue(DataHelper.getLastTwoDigitsOfYear());
+        }
+        public void getNextYear() {
+
+                year.setValue(DataHelper.getNextYear());
+        }
+        public void limitYear() {
+
+                year.setValue(DataHelper.limitYear());
         }
 
-        public static SelenideElement getName() {
-                return name;
+        public void getName() {
+                name.setValue(DataHelper.generateRandomName());
+
+        }
+        public void getNameLongText() {
+                name.setValue(DataHelper.text());
+
         }
 
-        public static SelenideElement getCvc() {
-                return cvc;
+        public void getCvc() {
+                cvc.setValue(DataHelper.generateCvcCode());
         }
 
-        public static void clickButtonCont() {
+        public void clickButtonCont() {
                 buttonCont.click();
         }
+        public  void fillInput(SelenideElement element, String value) {
+                element.val(value);
+        }
+
+        public void stringMonth(String value) {
+                fillInput(month, value);
+        }
+        public void stringYear(String value) {
+                fillInput(year, value);
+        }
+        public void stringCvc(String value) {
+                fillInput(cvc, value);
+        }
+        public void scriptCard(String value) {
+                fillInput(cardInfo, value);
+        }
 }
+

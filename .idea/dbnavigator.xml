@@ -20,19 +20,12 @@ from
     </connection>
     <connection id="55cc8c71-ce38-4cab-86c2-ddb996198cdd">
       <console name="Connection" type="STANDARD" schema="app" session="Main"><![CDATA[select
+    cre.bank_id,
+    cre.created,
+    cre."id",
     cre.status
 from
-    credit_request_entity cre;
-
-
-
-select
-    oe.created,
-    oe.credit_id,
-    oe."id",
-    oe.payment_id
-from
-    order_entity oe;]]></console>
+    credit_request_entity cre;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -52,6 +45,7 @@ from
     <filter-actions connection-id="37982031-c333-4dab-9a06-1e94cd21b0ee" dataset="performance_schema.variables_info" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="55cc8c71-ce38-4cab-86c2-ddb996198cdd" dataset="public.order_entity" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="55cc8c71-ce38-4cab-86c2-ddb996198cdd" dataset="information_schema.sql_sizing" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="55cc8c71-ce38-4cab-86c2-ddb996198cdd" dataset="public.payment_entity" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="55cc8c71-ce38-4cab-86c2-ddb996198cdd" dataset="pg_catalog.pg_operator" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="55cc8c71-ce38-4cab-86c2-ddb996198cdd" dataset="information_schema.sql_parts" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="55cc8c71-ce38-4cab-86c2-ddb996198cdd" dataset="public.credit_request_entity" active-filter-id="EMPTY_FILTER" />
