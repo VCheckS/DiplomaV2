@@ -192,7 +192,7 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
         dashboard.getRandomMonth();
-        dashboard.stringYear("Q, q");
+        dashboard.stringName("Q, q");
         dashboard.getName();
         dashboard.getCvc();
         dashboard.clickButtonCont();
@@ -207,7 +207,7 @@ public class NegotiveTestsPayment {
         dashboard.getApprovedCardInfo();
         dashboard.getRandomMonth();
         dashboard.getNextYear();
-        StringGenerator.stringCard();
+        dashboard.stringName("Iva4 !##ноВ");
         dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");

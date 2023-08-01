@@ -127,5 +127,8 @@ public class DashBoard {
         public void scriptCard(String value) {
                 fillInput(cardInfo, value);
         }
+        public void stringName(String value) {
+                fillInput(name, value);
+        }
 }
 

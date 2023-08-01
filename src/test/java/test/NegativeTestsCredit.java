@@ -76,7 +76,7 @@ public class NegativeTestsCredit {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
         dashboard.getApprovedCardInfo();
-        dashboard.getNextYear();
+
         dashboard.getName();
         dashboard.getRandomMonth();
         dashboard.getCvc();
@@ -202,7 +202,7 @@ public class NegativeTestsCredit {
         dashboard.getApprovedCardInfo();
         dashboard.getRandomMonth();
         dashboard.getNextYear();
-        StringGenerator.stringCard();
+        dashboard.stringName("Iva4 !##ноВ");
         dashboard.getCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
