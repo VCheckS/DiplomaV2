@@ -36,10 +36,10 @@ public class NegotiveTestsPayment {
     public void EmptyCardFieldPaymentService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getRandomMonth();
-        dashboard.getNextYear();
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setRandomMonth();
+        dashboard.setNextYear();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -50,9 +50,9 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
-        dashboard.getRandomMonth();
-        dashboard.getNextYear();
-        dashboard.getCvc();
+        dashboard.setRandomMonth();
+        dashboard.setNextYear();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findMustBeFilledMessage("Поле обязательно для заполнения");
     }
@@ -62,9 +62,9 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
-        dashboard.getName();
-        dashboard.getNextYear();
-        dashboard.getCvc();
+        dashboard.setName();
+        dashboard.setNextYear();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -75,10 +75,10 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
-        dashboard.getNextYear();
-        dashboard.getName();
-        dashboard.getRandomMonth();
-        dashboard.getCvc();
+        dashboard.setNextYear();
+        dashboard.setName();
+        dashboard.setRandomMonth();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -89,10 +89,10 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
-        dashboard.getNextYear();
-        dashboard.getName();
-        dashboard.getNextYear();
-        dashboard.getRandomMonth();
+        dashboard.setNextYear();
+        dashboard.setName();
+        dashboard.setNextYear();
+        dashboard.setRandomMonth();
 
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
@@ -103,11 +103,11 @@ public class NegotiveTestsPayment {
     public void InvalidCardFieldPaymentService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getStringCard();
-        dashboard.getRandomMonth();
-        dashboard.getNextYear();
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setStringCard();
+        dashboard.setRandomMonth();
+        dashboard.setNextYear();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -119,9 +119,9 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
         dashboard.stringMonth("Q,q");
-        dashboard.getNextYear();
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setNextYear();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -134,11 +134,11 @@ public class NegotiveTestsPayment {
         dashboard.getApprovedCardInfo();
         dashboard.stringMonth("!,@");
 
-        dashboard.getNextYear();
+        dashboard.setNextYear();
 
-        dashboard.getName();
+        dashboard.setName();
 
-        dashboard.getCvc();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -150,9 +150,9 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
         dashboard.stringMonth("~,й");
-        dashboard.getNextYear();
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setNextYear();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -163,10 +163,10 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
-        dashboard.getRandomMonth();
+        dashboard.setRandomMonth();
         dashboard.stringYear("й, `");
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -177,10 +177,10 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
-        dashboard.getRandomMonth();
+        dashboard.setRandomMonth();
         dashboard.stringYear("!, @");
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -191,10 +191,10 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
-        dashboard.getRandomMonth();
+        dashboard.setRandomMonth();
         dashboard.stringName("Q, q");
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -205,10 +205,10 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
-        dashboard.getRandomMonth();
-        dashboard.getNextYear();
+        dashboard.setRandomMonth();
+        dashboard.setNextYear();
         dashboard.stringName("Iva4 !##ноВ");
-        dashboard.getCvc();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -219,9 +219,9 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
-        dashboard.getRandomMonth();
-        dashboard.getNextYear();
-        dashboard.getName();
+        dashboard.setRandomMonth();
+        dashboard.setNextYear();
+        dashboard.setName();
         dashboard.stringCvc("Q, !, @");
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
@@ -233,10 +233,10 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.scriptCard("<script> alert('Hello!');</script>");
-        dashboard.getRandomMonth();
-        dashboard.getNextYear();
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setRandomMonth();
+        dashboard.setNextYear();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -247,10 +247,10 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
-        dashboard.getRandomMonth();
-        dashboard.getNextYear();
-        dashboard.getNameLongText();
-        dashboard.getCvc();
+        dashboard.setRandomMonth();
+        dashboard.setNextYear();
+        dashboard.setNameLongText();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Превышена максимальная длина Имени");
     }
@@ -262,9 +262,9 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
         dashboard.stringMonth("0','0");
-        dashboard.getNextYear();
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setNextYear();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findWrongFormatMessage("Неверный формат");
     }
@@ -276,9 +276,9 @@ public class NegotiveTestsPayment {
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
         dashboard.stringMonth("1','3");
-        dashboard.getNextYear();
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setNextYear();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findInvalidCardExpirationDate("Неверно указан срок действия карты");
     }
@@ -289,10 +289,10 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
-        dashboard.getCurrentMonth();
-        dashboard.getYear();
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setCurrentMonth();
+        dashboard.setYear();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findSuccessMessage("Успешно");
     }
@@ -303,10 +303,10 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.getApprovedCardInfo();
-        dashboard.getCurrentMonth();
+        dashboard.setCurrentMonth();
         dashboard.limitYear();
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findInvalidCardExpirationDate("Неверно указан срок действия карты");
     }

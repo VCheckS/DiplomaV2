@@ -37,10 +37,10 @@ public class PositiveTestCredit {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
         dashboard.getApprovedCardInfo();
-        dashboard.getRandomMonth();
-        dashboard.getNextYear();
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setRandomMonth();
+        dashboard.setNextYear();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findSuccessMessage("Успешно");
     }
@@ -50,11 +50,11 @@ public class PositiveTestCredit {
     public void positiveTestWithUnknownCardCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();;
-        dashboard.getUnknownCardInfo();
-        dashboard.getRandomMonth();
-        dashboard.getNextYear();
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setUnknownCardInfo();
+        dashboard.setRandomMonth();
+        dashboard.setNextYear();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.clickButtonCont();
         dashboard.findErrorMessage("Ошибка");
@@ -64,11 +64,11 @@ public class PositiveTestCredit {
     public void positiveTestWithDeclinedCardCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getDeclinedCardInfo();
-        dashboard.getRandomMonth();
-        dashboard.getNextYear();
-        dashboard.getName();
-        dashboard.getCvc();
+        dashboard.setDeclinedCardInfo();
+        dashboard.setRandomMonth();
+        dashboard.setNextYear();
+        dashboard.setName();
+        dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findErrorMessage("Ошибка");
 

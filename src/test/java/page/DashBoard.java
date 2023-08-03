@@ -60,33 +60,33 @@ public class DashBoard {
 
                 cardInfo.setValue(DataHelper.getApprovedCardInfo());
         }
-        public void getDeclinedCardInfo() {
+        public void setDeclinedCardInfo() {
 
                 cardInfo.setValue(DataHelper.getDeclinedCardInfo());
         }
-        public void getUnknownCardInfo() {
+        public void setUnknownCardInfo() {
 
                 cardInfo.setValue(DataHelper.getUnknownCardInfo());
         }
-        public void getStringCard() {
+        public void setStringCard() {
 
                 cardInfo.setValue(StringGenerator.stringCard());
         }
 
-        public void getRandomMonth() {
+        public void setRandomMonth() {
 
                 month.setValue(DataHelper.generateRandomMonth());
         }
-        public void getCurrentMonth() {
+        public void setCurrentMonth() {
 
                 month.setValue(DataHelper.currentMonth());
         }
 
-        public void getYear() {
+        public void setYear() {
 
                 year.setValue(DataHelper.getLastTwoDigitsOfYear());
         }
-        public void getNextYear() {
+        public void setNextYear() {
 
                 year.setValue(DataHelper.getNextYear());
         }
@@ -95,16 +95,16 @@ public class DashBoard {
                 year.setValue(DataHelper.limitYear());
         }
 
-        public void getName() {
+        public void setName() {
                 name.setValue(DataHelper.generateRandomName());
 
         }
-        public void getNameLongText() {
+        public void setNameLongText() {
                 name.setValue(DataHelper.text());
 
         }
 
-        public void getCvc() {
+        public void setCvc() {
                 cvc.setValue(DataHelper.generateCvcCode());
         }
 
