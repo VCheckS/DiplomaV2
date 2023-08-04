@@ -3,7 +3,6 @@ package test;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import data.DataHelper;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,7 +12,7 @@ import page.DashBoard;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class positiveTestPayment {
+public class PositiveTestPayment {
     @BeforeAll
     static void setUPAll() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
