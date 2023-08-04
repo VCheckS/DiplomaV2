@@ -40,18 +40,6 @@ public class SqlHelper {
             return runner.query(conn, statusSQL, new ScalarHandler<>());
         }
     }
-
-//    private static DataSource getDataSource() {
-//        String url = System.getProperty("jdbc:mysql://localhost:3306/app");
-//        String login = System.getProperty("app");
-//        String password = System.getProperty("pass");
-//
-//        BasicDataSource dataSource = new BasicDataSource();
-//        dataSource.setUrl(url);
-//        dataSource.setUsername(login);
-//        dataSource.setPassword(password);
-//
-//        return dataSource;
-//    }
+    
 
 }
