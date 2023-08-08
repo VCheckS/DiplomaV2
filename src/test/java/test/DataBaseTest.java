@@ -7,9 +7,6 @@ import io.qameta.allure.selenide.AllureSelenide;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.*;
 import page.DashBoard;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -45,7 +42,7 @@ public class DataBaseTest {
 
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.setNextYear();
         dashboard.setName();
@@ -63,7 +60,7 @@ public class DataBaseTest {
 
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.setNextYear();
         dashboard.setName();

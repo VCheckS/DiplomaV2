@@ -56,7 +56,7 @@ public class DashBoard {
                 buttonCredit.click();
         }
 
-        public void getApprovedCardInfo() {
+        public void setApprovedCardInfo() {
 
                 cardInfo.setValue(DataHelper.getApprovedCardInfo());
         }

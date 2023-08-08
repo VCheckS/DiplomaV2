@@ -36,7 +36,7 @@ public class PositiveTestCredit {
     public void positiveTestWithApprovedCardCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.setNextYear();
         dashboard.setName();

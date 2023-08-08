@@ -35,15 +35,13 @@ public class PositiveTestPayment {
     public void positiveTestWithApprovedCardPaymentService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.setNextYear();
         dashboard.setName();
         dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findSuccessMessage("Успешно");
-
-
     }
 
     @Test
@@ -71,6 +69,5 @@ public class PositiveTestPayment {
         dashboard.setCvc();
         dashboard.clickButtonCont();
         dashboard.findErrorMessage("Ошибка");
-
     }
 }

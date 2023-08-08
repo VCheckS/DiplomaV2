@@ -2,11 +2,9 @@ package data;
 
 
 import lombok.SneakyThrows;
-import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -20,11 +18,8 @@ public class SqlHelper {
         var password = System.getProperty("password");
         var statusSQL = "SELECT pe.status FROM payment_entity pe ORDER BY created DESC LIMIT 1";
 
-        try (Connection conn = DriverManager.getConnection(
-                url, login, password);
-        ) {
-            return runner.query(conn, statusSQL, new ScalarHandler<>());
-        }
+        Connection conn = DriverManager.getConnection(url, login, password);
+        return runner.query(conn, statusSQL, new ScalarHandler<>());
     }
 
     @SneakyThrows
@@ -34,12 +29,8 @@ public class SqlHelper {
         var password = System.getProperty("password");
         var statusSQL = "SELECT cre.status FROM credit_request_entity cre ORDER BY created DESC LIMIT 1";
 
-        try (Connection conn = DriverManager.getConnection(
-                url, login, password);
-        ) {
-            return runner.query(conn, statusSQL, new ScalarHandler<>());
-        }
+        Connection conn = DriverManager.getConnection(url, login, password);
+        return runner.query(conn, statusSQL, new ScalarHandler<>());
     }
-    
 
 }

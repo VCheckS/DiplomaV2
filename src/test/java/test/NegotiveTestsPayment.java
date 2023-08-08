@@ -49,7 +49,7 @@ public class NegotiveTestsPayment {
     public void EmptyNameFieldPaymentService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.setNextYear();
         dashboard.setCvc();
@@ -61,7 +61,7 @@ public class NegotiveTestsPayment {
     public void EmptyMonthFieldPaymentService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setName();
         dashboard.setNextYear();
         dashboard.setCvc();
@@ -74,7 +74,7 @@ public class NegotiveTestsPayment {
     public void EmptyYearFieldPaymentService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setNextYear();
         dashboard.setName();
         dashboard.setRandomMonth();
@@ -88,7 +88,7 @@ public class NegotiveTestsPayment {
     public void EmptyCvcFieldPaymentService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setNextYear();
         dashboard.setName();
         dashboard.setNextYear();
@@ -117,7 +117,7 @@ public class NegotiveTestsPayment {
     public void InvalidMonthFieldPaymentService1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.stringMonth("Q,q");
         dashboard.setNextYear();
         dashboard.setName();
@@ -131,7 +131,7 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
 
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.stringMonth("!,@");
 
         dashboard.setNextYear();
@@ -148,7 +148,7 @@ public class NegotiveTestsPayment {
     public void InvalidMonthFieldPaymentService3() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.stringMonth("~,й");
         dashboard.setNextYear();
         dashboard.setName();
@@ -162,7 +162,7 @@ public class NegotiveTestsPayment {
     public void InvalidYearFieldPaymentService1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.stringYear("й, `");
         dashboard.setName();
@@ -176,7 +176,7 @@ public class NegotiveTestsPayment {
     public void InvalidYearFieldPaymentService2() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.stringYear("!, @");
         dashboard.setName();
@@ -190,7 +190,7 @@ public class NegotiveTestsPayment {
     public void InvalidYearFieldPaymentService3() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.stringName("Q, q");
         dashboard.setName();
@@ -204,7 +204,7 @@ public class NegotiveTestsPayment {
     public void InvalidNameFieldPaymentService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.setNextYear();
         dashboard.stringName("Iva4 !##ноВ");
@@ -218,7 +218,7 @@ public class NegotiveTestsPayment {
     public void InvalidCvcFieldPaymentService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.setNextYear();
         dashboard.setName();
@@ -246,7 +246,7 @@ public class NegotiveTestsPayment {
     public void textNameFieldPaymentServ() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.setNextYear();
         dashboard.setNameLongText();
@@ -260,7 +260,7 @@ public class NegotiveTestsPayment {
     public void limitCheckMonthFieldPaymentServ1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.stringMonth("0','0");
         dashboard.setNextYear();
         dashboard.setName();
@@ -274,7 +274,7 @@ public class NegotiveTestsPayment {
     public void limitCheckMonthFieldPaymentServ2() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.stringMonth("1','3");
         dashboard.setNextYear();
         dashboard.setName();
@@ -288,7 +288,7 @@ public class NegotiveTestsPayment {
     public void limitCheckYearFieldPaymentServ1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setCurrentMonth();
         dashboard.setYear();
         dashboard.setName();
@@ -302,7 +302,7 @@ public class NegotiveTestsPayment {
     public void limitCheckYearFieldPaymentServ2() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setCurrentMonth();
         dashboard.limitYear();
         dashboard.setName();

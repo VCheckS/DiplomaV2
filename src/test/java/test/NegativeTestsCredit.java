@@ -51,7 +51,7 @@ public class NegativeTestsCredit {
     public void EmptyNameFieldPaymentService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.setNextYear();
         dashboard.setCvc();
@@ -63,7 +63,7 @@ public class NegativeTestsCredit {
     public void EmptyMonthFieldCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setName();
         dashboard.setNextYear();
         dashboard.setCvc();
@@ -75,7 +75,7 @@ public class NegativeTestsCredit {
     public void EmptyYearFieldCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
 
         dashboard.setName();
         dashboard.setRandomMonth();
@@ -89,7 +89,7 @@ public class NegativeTestsCredit {
     public void EmptyCvcFieldCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setNextYear();
         dashboard.setName();
         dashboard.setNextYear();
@@ -117,7 +117,7 @@ public class NegativeTestsCredit {
     public void InvalidMonthFieldCreditService1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.stringMonth("Q,q");
         dashboard.setNextYear();
         dashboard.setName();
@@ -131,7 +131,7 @@ public class NegativeTestsCredit {
     public void InvalidMonthFieldCreditService2() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.stringMonth("!,@");
         dashboard.setNextYear();
         dashboard.setName();
@@ -144,7 +144,7 @@ public class NegativeTestsCredit {
     public void InvalidMonthFieldCreditService3() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.stringMonth("~,й");
         dashboard.setNextYear();
         dashboard.setName();
@@ -158,7 +158,7 @@ public class NegativeTestsCredit {
     public void InvalidYearFieldCreditService1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.stringYear("й, `");
         dashboard.setName();
@@ -172,7 +172,7 @@ public class NegativeTestsCredit {
     public void InvalidYearFieldCreditService2() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.stringYear("!, @");
         dashboard.setName();
@@ -186,7 +186,7 @@ public class NegativeTestsCredit {
     public void InvalidYearFieldCreditService3() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.stringYear("Q, q");
         dashboard.setName();
@@ -199,7 +199,7 @@ public class NegativeTestsCredit {
     public void InvalidNameFieldCreditService1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.setNextYear();
         dashboard.stringName("Iva4 !##ноВ");
@@ -213,7 +213,7 @@ public class NegativeTestsCredit {
     public void InvalidCvcFieldCreditService() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.setNextYear();
         dashboard.setName();
@@ -240,7 +240,7 @@ public class NegativeTestsCredit {
     public void textNameFieldCreditServ() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setRandomMonth();
         dashboard.setNextYear();
         dashboard.setNameLongText();
@@ -253,7 +253,7 @@ public class NegativeTestsCredit {
     public void limitCheckMonthFieldCreditServ1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.stringMonth("0','0");
         dashboard.setNextYear();
         dashboard.setName();
@@ -266,7 +266,7 @@ public class NegativeTestsCredit {
     public void limitCheckMonthFieldCreditServ2() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.stringMonth("1','3");
         dashboard.setNextYear();
         dashboard.setName();
@@ -279,7 +279,7 @@ public class NegativeTestsCredit {
     public void limitCheckYearFieldCreditServ1() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setCurrentMonth();
         dashboard.setYear();
         dashboard.setName();
@@ -292,7 +292,7 @@ public class NegativeTestsCredit {
     public void limitCheckYearFieldCreditServ2() {
         DashBoard dashboard = new DashBoard();
         dashboard.clickCreditButton();
-        dashboard.getApprovedCardInfo();
+        dashboard.setApprovedCardInfo();
         dashboard.setCurrentMonth();
         dashboard.limitYear();
         dashboard.setName();
