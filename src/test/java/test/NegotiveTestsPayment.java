@@ -75,7 +75,6 @@ public class NegotiveTestsPayment {
         DashBoard dashboard = new DashBoard();
         dashboard.clickButtonPayment();
         dashboard.setApprovedCardInfo();
-        dashboard.setNextYear();
         dashboard.setName();
         dashboard.setRandomMonth();
         dashboard.setCvc();
